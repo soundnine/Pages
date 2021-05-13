@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    overflow: hidden;
+}
+
+canvas{
+    width:100vw;
+    height:100vh;
+    /* cursor:none; */
+    /* mix-blend-mode: multiply;
+    opacity: 0.85; */
+}
+
+.image-wrapper{
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:600px;
+    height: 900px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.image-wrapper > img{
+    border-radius: 30%;
+}

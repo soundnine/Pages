@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #ebf5fc;
+}
+
+ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap:wrap;
+    border-radius: 10px;
+    padding: 20px;
+    width:240px;
+    background: #ebf5fc;
+    box-shadow: -2px -2px 3px white, 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+ul li{
+    position: relative;
+    list-style: none;
+    text-align : center;
+    margin: 15px;
+}
+
+ul li label{
+    position: relative;
+    cursor: pointer;
+}
+
+ul li label input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+}
+
+ul li label .icon-box{
+    width: 60px;
+    height: 60px;
+    background: #ebf5fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -2px -2px 3px white, 3px 3px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+ul li label :checked ~ .icon-box{
+    box-shadow: inset -2px -2px 5px white, inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+ul li label :checked ~ .icon-box .fa{
+    transform: scale(0.95);
+}
+
+/* Social Icons */
+.social-icons{
+    display: flex;
+    bottom: 25px;
+    right: 25px;
+    padding:10px;
+}
+
+.social-icon{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width:40px;
+    height:40px;
+    margin:0 0.7rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.social-icon :hover{
+    color: #fff;
+}
+
+.social-icon:hover .tooltip{
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, -150%);
+}
+
+.social-icon:active{
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5) inset;
+}
+
+.social-icon--twitter{
+    box-shadow: -2px -2px 2px rgba(255, 255, 255, 0.5) ,1px 1px 3px rgba(0, 0, 0, 0.5);
+    color:#fff;
+}
+
+.social-icon--twitter .tooltip{
+    background: #2b97f1;
+    color: currentColor;
+}
+
+.social-icon--codepen{
+    box-shadow: -2px -2px 2px rgba(255, 255, 255, 0.5) ,1px 1px 3px rgba(0, 0, 0, 0.5);
+    color: black;
+}
+
+.social-icon--codepen .tooltip{
+    background: #000;
+    color: currentColor;
+}
+
+.social-icon i{
+    position: relative;
+    top: 1px;
+}
+
+.tooltip{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    padding: 0.4rem 0.6rem;
+    border-radius: 40px;
+    font-size: 0.4rem;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    text-transform: uppercase;
+    transform: translate(-50%, -100%);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.tooltip:after{
+    display: block;
+    position:absolute;
+    bottom: 1px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    content: "";
+    border: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: transparent;
+    transform: translate(-50%, 100%);
+}
