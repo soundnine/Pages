@@ -1,0 +1,33 @@
+@media all and (max-height: 800px){
+  .section1_text > h2 {font-size: 36px !important; line-height: 46px !important;}
+  .section1_text2 > h3 {padding-top: 20px !important; font-size: 14px !important;}
+  .section1_text_wrap {height: calc(100% - 400px) !important;}
+
+  .right_phone_img_wrapper{
+        transform: scale(0.7);
+        transform-origin: left bottom;
+  }
+
+  .floating_phone{
+    transform: scale(0.7) !important;
+  }
+  
+  .floating_section1{
+    left: 34.5% !important; 
+  }
+
+  .floating_section2{
+    left: 30.5% !important;
+    bottom: 6.2% !important;
+  }
+
+  .section2_top_text{
+    font-size: 36px !important;
+    line-height: 46px !important;
+    padding-top: 23px !important;
+  }
+
+  .section2_bottom_text{
+    font-size: 14px !important;
+  }
+}

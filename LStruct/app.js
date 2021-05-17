@@ -10,20 +10,13 @@ window.onload = () => {
     const moveDisplayAxisY = (num) => {
         const mainContent = document.querySelector('.main_content');
         mainContent.style.transform = `translateY(${num}%)`;
-        const phoneFrame = document.querySelector('.floating_phone');
 
+        const phoneFrame = document.querySelector('.floating_phone');
         if(num == 0){
             phoneFrame.classList.remove('phone_shadow');
         } else{
             phoneFrame.classList.add('phone_shadow');
         }
-    }
-
-    //폰 움직임
-    const movePhoneFrame = (left, bottom) => {
-        const floatingPhone = document.querySelector('.floating_phone');
-        floatingPhone.style.left = left;
-        floatingPhone.style.bottom = bottom;
     }
 
     //캔버스 4호 그리기
@@ -46,7 +39,7 @@ window.onload = () => {
             items[order].classList.add('item_move');
             drawArcOnCanvas(order);
             ++order;
-        },750);
+        }, 750);
     }
 
     const sec2ItemRemoveEvent = (s2ListEl) => {
@@ -58,27 +51,22 @@ window.onload = () => {
         });
     }
     
-    const topElForPreValue = document.querySelector('.section2_top_text').style.paddingTop;
-    const btmElForPreValue = document.querySelector('.section2_bottom_text').style.paddingTop;
+    //섹션 2 텍스트 움직임
     const EXPAND = 'EXPAND';
     const SHRINK = 'SHRINK';
     const changeCenterTextPadding = (changeFlag) => {
-        const expPaddingOfTop= topElForPreValue;
-        const expPaddingOfBtm = btmElForPreValue;
-        const shrPaddingOfTop = '161px';
-        const shrPaddingOfBtm = '0px';
         const topTextEl = document.querySelector('.section2_top_text');
         const btmTextEl = document.querySelector('.section2_bottom_text');
 
         switch(changeFlag){
             case EXPAND: {
-                topTextEl.style.paddingTop = expPaddingOfTop;
-                btmTextEl.style.paddingTop = expPaddingOfBtm;
+                topTextEl.classList.remove('section2_top_shrink');
+                btmTextEl.classList.remove('section2_btm_shrink');
                 break;
             }
             case SHRINK: {
-                topTextEl.style.paddingTop = shrPaddingOfTop;
-                btmTextEl.style.paddingTop = shrPaddingOfBtm;
+                topTextEl.classList.add('section2_top_shrink');
+                btmTextEl.classList.add('section2_btm_shrink');
                 break;
             }
         }
@@ -89,6 +77,19 @@ window.onload = () => {
         const hiddenEl = document.querySelector(hiddenTarget);
         visibleEl.classList.add('on');
         hiddenEl.classList.remove('on');
+    }
+
+    const addClassOnPhone = (num) => {
+        const className = `floating_section${num}`;
+        const floatingPhone = document.querySelector('.floating_phone');
+        floatingPhone.classList.add(className);
+    }
+
+    const removeClassOnPhone = (num) => {
+        const className = `floating_section${num}`;
+        const floatingPhone = document.querySelector('.floating_phone');
+        floatingPhone.classList.remove(className);
+
     }
 
     //섹션2 센터 애니메이션 종료 후
@@ -109,10 +110,6 @@ window.onload = () => {
             const currentDisplaying = document.querySelector('.section_active');
             const cList = currentDisplaying.classList;
             const s2ItemList = document.querySelector('.section2_item_list');
-            const sec1PhonePosition = ['615px', '-105px'];
-            const sec2PhonePosition = ['585px', '155px'];
-            const sec3PhonePosition = ['810px', '-268px'];
-            const sec4PhonePosition = ['1065px', '187px'];
 
             //양수 아래
             if(wheelDirection > 0){
@@ -120,23 +117,27 @@ window.onload = () => {
                
                 if(cList.contains('section1')){
                     moveDisplayAxisY(-25);
-                    movePhoneFrame(sec2PhonePosition[0], sec2PhonePosition[1]);
                     sec2ItemAddEvent(s2ItemList);
                     handleVisibleOfPhone('.section1_content', '.section2_content');
+                    removeClassOnPhone(1);
+                    addClassOnPhone(2);
                 }
 
                 if(cList.contains('section2')){
                     moveDisplayAxisY(-50);
-                    movePhoneFrame(sec3PhonePosition[0], sec3PhonePosition[1]);
                     sec2ItemRemoveEvent(s2ItemList);
                     changeCenterTextPadding(EXPAND);
                     handleVisibleOfPhone('.section2_content', '.section3_content');
+                    removeClassOnPhone(2);
+                    addClassOnPhone(3);
+                    canvas.clear();
                 }
 
                 if(cList.contains('section3')){
                     moveDisplayAxisY(-75);
-                    movePhoneFrame(sec4PhonePosition[0], sec4PhonePosition[1]);
                     handleVisibleOfPhone('.section3_content', '.section4_content');
+                    removeClassOnPhone(3);
+                    addClassOnPhone(4);
                 }
 
                 currentDisplaying.classList.remove('section_active');
@@ -148,29 +149,33 @@ window.onload = () => {
 
                 if(cList.contains('section2')){
                     moveDisplayAxisY(0)
-                    movePhoneFrame(sec1PhonePosition[0], sec1PhonePosition[1]);
                     sec2ItemRemoveEvent(s2ItemList);
                     changeCenterTextPadding(EXPAND);
                     handleVisibleOfPhone('.section2_content', '.section1_content');
+                    removeClassOnPhone(2);
+                    addClassOnPhone(1);
+                    canvas.clear();
                 }
 
                 if(cList.contains('section3')){
                     moveDisplayAxisY(-25);
-                    movePhoneFrame(sec2PhonePosition[0], sec2PhonePosition[1]);
                     sec2ItemAddEvent(s2ItemList);
                     handleVisibleOfPhone('.section3_content', '.section2_content');
+                    removeClassOnPhone(3);
+                    addClassOnPhone(2);
                 }
 
                 if(cList.contains('section4')){
                     moveDisplayAxisY(-50);
-                    movePhoneFrame(sec3PhonePosition[0], sec3PhonePosition[1]);
                     handleVisibleOfPhone('.section4_content', '.section3_content');
+                    removeClassOnPhone(4);
+                    addClassOnPhone(3);
                 }
 
                 currentDisplaying.classList.remove('section_active');
                 currentDisplaying.previousElementSibling.classList.add('section_active');
             }
         }
-    ,250);
+    , 250);
     });
 }

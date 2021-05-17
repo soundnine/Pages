@@ -10,6 +10,8 @@ export class Canvas{
 
     setTranslate(translateX, translateY){
         this.ctx.translate(translateX, translateY);
+        this.x = translateX;
+        this.y = translateY;
     }
 
     drawArc(color, radius, startAngle, endAngle){
@@ -23,5 +25,9 @@ export class Canvas{
         this.ctx.stroke();
 
         this.ctx.restore();
+    }
+
+    clear(){
+        this.ctx.clearRect(-this.x, -this.y, this.canvas.width, this.canvas.height);
     }
 }

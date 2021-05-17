@@ -1,4 +1,5 @@
-@charset "utf-8";
+@charset "ut'f-8";
+@import url("./media.css");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap");
 
@@ -69,6 +70,10 @@
     padding: 0;
     box-sizing: border-box;
     word-break: keep-all;
+}
+
+body{
+    overflow: hidden;
 }
 
 ul, ol, li {
@@ -237,6 +242,7 @@ header{
 /* 메인 */
 .main_content{
     transition: all 0.5s;
+    /* overflow: hidden; */
 }
 
 .main_content > .main_nav{
@@ -290,8 +296,17 @@ header{
     clear: both;
 }
 
-.section1_text{
-    padding-top: 80px;
+.section1_text_wrap{
+    position: relative;
+    height: calc(100% - 490px);
+}
+
+.section1_text_wrap_dep2{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 48%;
+    transform: translateY(-50%);
 }
 
 .section1_text > h2{
@@ -304,7 +319,7 @@ header{
     animation: center_text_h2_slide 1s forwards;
 }
 
-.section2_text > h3{
+.section1_text2 > h3{
     text-align: center;
     padding-top: 30px;
     font-size: 18px;
@@ -404,6 +419,10 @@ header{
     transition: all 1s;
 }
 
+.section2_top_shrink{
+    padding-top: 161px;
+}
+
 @keyframes section2_move{
     0%{
         transform: translateX(0);
@@ -466,6 +485,10 @@ header{
     transition: all 1s;
 }
 
+.section2_btm_shrink{
+    padding-top: 0;
+}
+
 .section3{
     background-color: #009bfa;
 }
@@ -480,8 +503,6 @@ header{
     width: 300px;
     height: 595px;
     z-index: 1;
-    left: 615px;
-    bottom: -105px;
     transition: all 0.4s;
 }
 
@@ -497,6 +518,20 @@ header{
     background: url(./images/pc-phone-frame-shadow.png);
 }
 
+.floating_section1{
+    left: 32%;
+    bottom: -105px;
+}
+.floating_section2{
+    transform: translateX(152.5%);
+    bottom:13.5%;
+}
+.floating_section3{
+    
+}
+.floating_section4{
+    
+}
 .phone_shadow:before{
     opacity: 1;
     transition: all 1s ease;
