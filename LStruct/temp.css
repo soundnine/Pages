@@ -1,0 +1,44 @@
+
+@media all and (max-width:1080px) {
+  .section .inner {width: 100%;}  
+}
+
+@media all and (max-height:800px) {
+  .sec1 .sec-tit {font-size: 36px; line-height: 46px;}
+  .sec1 .sec-txt {margin-top: 20px;}
+  .sec1 .section-txt-wrap {height: calc(100% - 400px);}
+  .sec1 .bot-wrap .obj2 {transform: scale(0.7); transform-origin:left bottom;}
+}
+
+@media all and (max-height:800px) {
+  .sec2 .txt-w {margin-left: 416px; padding-left: 140px;}
+  .sec2 .center-txt-area .sec-tit {top: -60px;}
+  .sec2 .center-txt-area .sec-txt {top: 60px;}
+  .sec2 .center-txt-area .pay-ico-list {top: 65px;}
+  .sec2 .center-txt-area .pay-ico-list .list {margin-right: 20px; width: 70px; height: 70px;}
+}
+
+@media all and (max-height:900px) {
+  .sec3 .txt-area {top: 144px;}
+  .sec3 .bg-ico-w {transform: translate(-50%, 0) scale(0.85); bottom: -100px;}
+  .phone-frame.in-sec3 {transform: scale(0.85);}
+}
+
+@media all and (max-height:800px) {
+  .sec3 .bg-ico-w {transform: translate(-50%, 0) scale(0.7); bottom: -100px;}
+  .sec3 .bg-circle {transform: translateY(110px) scale(0.7);}
+}
+
+
+@media all and (max-height:800px) {
+  .sec4 .flex-area .left .blue-btn {margin-top: 60px;}
+}
+
+@media all and (max-height:800px) {
+  .phone-frame {transform: scale(0.7);}
+  .phone-frame.in-sec1 {transform-origin: right center; margin-left: 4%}
+  .phone-frame.in-sec2 {margin-left: 5%;}
+  .phone-frame.in-sec3 {transform: scale(0.7);}
+}
+
+
